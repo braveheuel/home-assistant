@@ -99,8 +99,6 @@ class HMThermostat(homematic.HMDevice, ClimateDevice):
         if temperature is None:
             return
 
-        if self.current_operation == STATE_AUTO:
-            return self._hmdevice.actionNodeData('MANU_MODE', temperature)
         self._hmdevice.set_temperature(temperature)
 
     def set_operation_mode(self, operation_mode):
